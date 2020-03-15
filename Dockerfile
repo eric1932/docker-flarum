@@ -85,6 +85,14 @@ RUN mkdir -p /opt/flarum \
   && chown -R flarum. /opt/flarum \
   && rm -rf /root/.composer /tmp/*
 
+RUN mkdir -p /opt/flarum/packages/auto-illini
+
+COPY auto-illini /opt/flarum/packages/auto-illini
+
+RUN cd /opt/flarum \
+  && composer config repositories.0 path "packages/*" \
+  && composer require fof/default-group *@dev
+
 COPY rootfs /
 
 RUN chmod +x /usr/local/bin/*
