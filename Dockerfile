@@ -40,6 +40,7 @@ RUN apk --update --no-cache add \
     php7-opcache \
     php7-openssl \
     php7-pdo \
+    php7-exif \
     php7-pdo_mysql \
     php7-phar \
     php7-session \
